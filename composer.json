@@ -1,0 +1,45 @@
+{
+	"name": "wikitext/query",
+	"description": "A query object that helps you crawl through wikitext.",
+	"type": "library",
+	"keywords": [
+		"wikipedia",
+		"wikitext",
+		"parser",
+		"crawler",
+		"query"
+	],
+	"homepage": "https://github.com/tsoffereins/wikitext",
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "Thomas Offereins",
+			"email": "tsoffereins@gmail.com",
+			"role": "lead"
+		}
+	],
+	"prefer-stable": true,
+	"require": {
+		"php": "^7.1",
+		"ext-json": "*"
+	},
+	"require-dev": {
+		"phpspec/prophecy": "^1.8",
+		"phpunit/phpunit": "^7.3"
+	},
+	"config": {
+		"platform": {
+			"php": "7.1.0"
+		},
+		"optimize-autoloader": true,
+		"sort-packages": true
+	},
+	"autoload": {
+		"psr-4": {
+			"Wikitext\\": "src/"
+		},
+		"classmap": [
+			"tests/"
+		]
+	}
+}
