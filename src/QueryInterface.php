@@ -6,12 +6,12 @@ namespace Wikitext;
 interface QueryInterface
 {
 	/**
-	 * Set the matchers for supporting selectors.
+	 * Add matchers for supporting selectors.
 	 *
 	 * @param  array $matchers
 	 * @return void
 	 */
-	public static function setMatchers(array $matchers): void;
+	public static function addMatchers(array $matchers): void;
 
 	/**
 	 * Query items within the wikitext.

@@ -20,7 +20,7 @@ class QueryNextAndPrevTest extends QueryTest
 	 */
 	public function setUp()
 	{
-		Query::setMatchers(
+		Query::addMatchers(
 			[
 				$this->getMatcherMock('*', '/.*/'),
 				$this->getMatcherMock('+', '/\+/'),

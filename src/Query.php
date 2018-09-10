@@ -7,6 +7,12 @@ use ArrayAccess;
 use ArrayIterator;
 use Countable;
 use IteratorAggregate;
+use Wikitext\Matchers\AnchorMatcher;
+use Wikitext\Matchers\HeaderMatcher;
+use Wikitext\Matchers\ListItemMatcher;
+use Wikitext\Matchers\OrderedListMatcher;
+use Wikitext\Matchers\RowMatcher;
+use Wikitext\Matchers\UnorderedListMatcher;
 
 class Query implements QueryInterface, ArrayAccess, Countable, IteratorAggregate
 {
@@ -31,12 +37,12 @@ class Query implements QueryInterface, ArrayAccess, Countable, IteratorAggregate
 	private $position = 0;
 
 	/**
-	 * Set the matchers for supporting selectors.
+	 * Add matchers for supporting selectors.
 	 *
 	 * @param array $matchers
 	 * @return void
 	 */
-	public static function setMatchers(array $matchers): void
+	public static function addMatchers(array $matchers): void
 	{
 		foreach ($matchers as $matcher) {
 			if ($matcher instanceof MatcherInterface) {

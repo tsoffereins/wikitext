@@ -20,7 +20,7 @@ class QueryOptionsTest extends QueryTest
 	 */
 	public function setUp()
 	{
-		Query::setMatchers(
+		Query::addMatchers(
 			[
 				$this->getMatcherMock('+', '/\+(.*)\+/', 1),
 				$this->getMatcherMock('-', '/\-(.*)\-/', 1),
