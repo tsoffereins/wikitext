@@ -109,6 +109,16 @@ interface QueryInterface
 	public function getText(): string;
 
 	/**
+	 * Match a regex against the wikitext.
+	 *
+	 * @param string $pattern
+	 * @param int    $index
+	 * @param null   $default
+	 * @return mixed
+	 */
+	public function match(string $pattern, int $index = 0, $default = null);
+
+	/**
 	 * Set the context that the wikitext was presented in.
 	 *
 	 * @param  QueryInterface $context
