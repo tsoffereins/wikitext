@@ -227,4 +227,64 @@ class QueryAccessTest extends QueryTest
 		// Then
 		$this->assertEquals($this->wikitext->getText(), $result);
 	}
+
+	/**
+	 * @test
+	 */
+	public function Should_ReturnMatch_When_FoundWithRegex_On_Match()
+	{
+		// Given
+		$wikitext = new Query('fobazo bar baz');
+
+		// When
+		$result = $wikitext->match('/bar (baz)/');
+
+		// Then
+		$this->assertEquals('bar baz', $result);
+	}
+
+	/**
+	 * @test
+	 */
+	public function Should_ReturnRequestedMatch_When_FoundWithRegex_On_Match()
+	{
+		// Given
+		$wikitext = new Query('fobazo bar baz');
+
+		// When
+		$result = $wikitext->match('/bar (baz)/', 1);
+
+		// Then
+		$this->assertEquals('baz', $result);
+	}
+
+	/**
+	 * @test
+	 */
+	public function Should_ReturnNullValue_When_NotFoundWithRegex_On_Match()
+	{
+		// Given
+		$wikitext = new Query('fobazo bar baz');
+
+		// When
+		$result = $wikitext->match('/hello/');
+
+		// Then
+		$this->assertEquals(null, $result);
+	}
+
+	/**
+	 * @test
+	 */
+	public function Should_ReturnDefinedDefaultValue_When_NotFoundWithRegex_On_Match()
+	{
+		// Given
+		$wikitext = new Query('fobazo bar baz');
+
+		// When
+		$result = $wikitext->match('/hello/', 0, 123);
+
+		// Then
+		$this->assertEquals(123, $result);
+	}
 }

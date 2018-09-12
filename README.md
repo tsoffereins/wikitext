@@ -119,16 +119,22 @@ Returns a Query object with the nth line of the Query.
 Wikitext\Query eq(int $index)
 ```
 
-### ArrayAccess, Countable & IteratorAggregate
+#### Match
+Matches a regular expression against the wikitext and returns the defined index or the default value.
+```php
+mixed match(string $pattern, int $index = 0, $default = null)
+```
+
+### Countable, ArrayAccess & IteratorAggregate
 A Query object can be treated as an array, but will always return its lines as Query objects.
 ```php
-foreach ($query as $line) {
-    var_dump($line); // Wikitext\Query
-}
+count($query); // x
 
 var_dump($query[3]); // Wikitext\Query
 
-count($query); // x
+foreach ($query as $line) {
+    var_dump($line); // Wikitext\Query
+}
 ```
 
 ## Support

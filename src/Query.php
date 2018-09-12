@@ -273,6 +273,25 @@ class Query implements QueryInterface, ArrayAccess, Countable, IteratorAggregate
 	}
 
 	/**
+	 * Match a regex against the wikitext.
+	 *
+	 * @param string $pattern
+	 * @param int    $index
+	 * @param null   $default
+	 * @return mixed
+	 */
+	public function match(string $pattern, int $index = 0, $default = null)
+	{
+		preg_match($pattern, $this->getText(), $matches);
+
+		if (isset($matches[$index])) {
+			return $matches[$index];
+		}
+
+		return $default;
+	}
+
+	/**
 	 * Set the context that the wikitext was presented in.
 	 *
 	 * @param QueryInterface $context
